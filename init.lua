@@ -13,6 +13,9 @@ require('user.colorschema')
 require('user.lsp')
 require('user.telescope')
 require('user.whichkey')
+require('user.lualine')
+
+-- vim.opt.guifont = "SauceCodePro Nerd Font:h10"
 -- require('user.basics')
 -- require('user.colors')
 -- require('user.telescope-config')
