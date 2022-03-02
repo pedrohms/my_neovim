@@ -37,12 +37,14 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("i", "<A-j>", "<Esc>:m .+1<CR>==a", opts)
+keymap("i", "<A-k>", "<Esc>:m .-2<CR>==a", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -68,11 +70,5 @@ keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require(
 keymap("n", "<leader>c", ":Bdelete!<CR>", opts)
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
 keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
---keymap("n", "gcc", ":Commentary<CR>", term_opts)
--- keymap("n", "gcc", v:count == 0 ? '<Cmd>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$' : '<Cmd>lua require("Comment.api").locked.toggle_linewise_count()<CR>', opts)
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+  keymap("i", "<C-h>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
